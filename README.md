@@ -12,7 +12,7 @@
 
 Deis (pronounced DAY-iss) Workflow is an open source Platform as a Service (PaaS) that adds a developer-friendly layer to any [Kubernetes](http://kubernetes.io) cluster, making it easy to deploy and manage applications on your own servers.
 
-For more information about the Deis Workflow, please visit the main project page at https://github.com/deis/workflow.
+For more information about the Deis Workflow, please visit the main project page at https://github.com/deisthree/workflow.
 
 We welcome your input! If you have feedback, please [submit an issue][issues]. If you'd like to participate in development, please read the "Development" section below and [submit a pull request][prs].
 
@@ -32,7 +32,7 @@ The Deis project welcomes contributions from all developers. The high level proc
 
 ## Prerequisities
 
-Before you run the tests, you'll need a full Deis cluster up and running in Kubernetes. Follow the instructions [here](https://github.com/deis/charts#installation) to get one running.
+Before you run the tests, you'll need a full Deis cluster up and running in Kubernetes. Follow the instructions [here](https://github.com/deisthree/charts#installation) to get one running.
 
 ## Run the Tests
 
@@ -141,10 +141,10 @@ Python 2.7.10 (default, Aug 13 2015, 12:27:27)
 >>> m.objects.all()
 ```
 
-Note that this is an ongoing issue for which we're planning [a more comprehensive fix](https://github.com/deis/workflow-e2e/issues/12).
+Note that this is an ongoing issue for which we're planning [a more comprehensive fix](https://github.com/deisthree/workflow-e2e/issues/12).
 
 
 [install-k8s]: http://kubernetes.io/gettingstarted/
-[issues]: https://github.com/deis/workflow-e2e/issues
-[prs]: https://github.com/deis/workflow-e2e/pulls
-[v2.18]: https://github.com/deis/workflow/releases/tag/v2.18.0
+[issues]: https://github.com/deisthree/workflow-e2e/issues
+[prs]: https://github.com/deisthree/workflow-e2e/pulls
+[v2.18]: https://github.com/deisthree/workflow/releases/tag/v2.18.0

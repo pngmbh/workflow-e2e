@@ -43,7 +43,7 @@ var _ = Describe("git push deis master", func() {
 			Context("and who has a local git repo containing buildpack source code", func() {
 
 				BeforeEach(func() {
-					output, err := cmd.Execute(`git clone https://github.com/deis/example-go.git`)
+					output, err := cmd.Execute(`git clone https://github.com/deisthree/example-go.git`)
 					Expect(err).NotTo(HaveOccurred(), output)
 				})
 
@@ -95,7 +95,7 @@ var _ = Describe("git push deis master", func() {
 					Context("with a bad buildpack", func() {
 
 						BeforeEach(func() {
-							badBuildpackURL := "https://github.com/deis/heroku-buildpack-epic-fail.git"
+							badBuildpackURL := "https://github.com/deisthree/heroku-buildpack-epic-fail.git"
 							sess, err := cmd.Start("deis config:set BUILDPACK_URL=%s", &user, badBuildpackURL)
 							Expect(err).NotTo(HaveOccurred())
 							Eventually(sess).Should(Say("BUILDPACK_URL"))
@@ -122,7 +122,7 @@ var _ = Describe("git push deis master", func() {
 
 						BeforeEach(func() {
 							os.Chdir("..")
-							output, err := cmd.Execute(`git clone https://github.com/deis/example-nodejs-express.git`)
+							output, err := cmd.Execute(`git clone https://github.com/deisthree/example-nodejs-express.git`)
 							Expect(err).NotTo(HaveOccurred(), output)
 						})
 
@@ -168,7 +168,7 @@ var _ = Describe("git push deis master", func() {
 			Context("and who has a local git repo containing dockerfile source code", func() {
 
 				BeforeEach(func() {
-					output, err := cmd.Execute(`git clone https://github.com/deis/example-dockerfile-http.git`)
+					output, err := cmd.Execute(`git clone https://github.com/deisthree/example-dockerfile-http.git`)
 					Expect(err).NotTo(HaveOccurred(), output)
 				})
 
@@ -247,7 +247,7 @@ var _ = Describe("git push deis master", func() {
 
 						BeforeEach(func() {
 							os.Chdir("..")
-							output, err := cmd.Execute(`git clone https://github.com/deis/example-dockerfile-procfile-http.git`)
+							output, err := cmd.Execute(`git clone https://github.com/deisthree/example-dockerfile-procfile-http.git`)
 							Expect(err).NotTo(HaveOccurred(), output)
 						})
 

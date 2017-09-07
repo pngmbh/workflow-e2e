@@ -134,7 +134,7 @@ var _ = Describe("deis apps", func() {
 		Context("who has a local git repo containing source code", func() {
 
 			BeforeEach(func() {
-				output, err := cmd.Execute(`git clone https://github.com/deis/example-go.git`)
+				output, err := cmd.Execute(`git clone https://github.com/deisthree/example-go.git`)
 				Expect(err).NotTo(HaveOccurred(), output)
 			})
 
