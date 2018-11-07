@@ -165,7 +165,7 @@ var _ = Describe("deis apps", func() {
 				sess, err := cmd.Start("deis info -a %s", &user, app.Name)
 				Eventually(sess).Should(Say("=== %s Application", app.Name))
 				Eventually(sess).Should(Say(`uuid:\s*%s`, uuidRegExp))
-				Eventually(sess).Should(Say(`url:\s*%s`, strings.Replace(app.URL, "http://", "", 1)))
+				Eventually(sess).Should(Say(`url:\s*%s`, strings.Replace(strings.TrimSuffix(app.URL, "/"), "http://", "", 1)))
 				Eventually(sess).Should(Say(`owner:\s*%s`, user.Username))
 				Eventually(sess).Should(Say(`id:\s*%s`, app.Name))
 				Eventually(sess).Should(Say("=== %s Processes", app.Name))
