@@ -72,7 +72,7 @@ func Open(user model.User, app model.App) {
 
 	output, err := ioutil.ReadFile(myShim.OutFile.Name())
 	Expect(err).NotTo(HaveOccurred())
-	Expect(strings.TrimSpace(string(output))).To(ContainSubstring(app.URL))
+	Expect(strings.TrimSpace(string(output))).To(ContainSubstring(strings.TrimSuffix(app.URL, "/")))
 }
 
 // Destroy executes `deis apps:destroy` on the specified app as the specified user.
