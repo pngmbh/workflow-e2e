@@ -19,31 +19,9 @@ function debug {
 
 trap debug ERR
 
-curl-cli-from-gcs-bucket() {
-	local gcs_bucket="${1}"
-	local base_url="https://storage.googleapis.com/${gcs_bucket}"
-	local url
-
-	case "${CLI_VERSION}" in
-		"latest" | "stable")
-			url="${base_url}"
-			;;
-		*)
-			url="${base_url}/${CLI_VERSION}"
-			;;
-	esac
-	url="${url}/deis-${CLI_VERSION}-linux-amd64"
-
-	# Download CLI, retry up to 5 times with 10 second delay between each
-	echo "Installing Workflow CLI version '${CLI_VERSION}' via url '${url}'"
-	curl -f --silent --show-error -I "${url}"
-	curl -f --silent --show-error --retry 5 --retry-delay 10 -o /usr/local/bin/deis "${url}"
-}
-
-# try multiple buckets for specific CLI_VERSION
-curl-cli-from-gcs-bucket "workflow-cli-master" || \
-curl-cli-from-gcs-bucket "workflow-cli-pr" || \
-curl-cli-from-gcs-bucket "workflow-cli-release"
+CLI_URL="https://github.com/pngmbh/workflow-cli/releases/download/${CLI_VERSION}/deis-latest-linux-amd64"
+echo "getting workflow-cli binary from $CLI_URL"
+curl -L -f --silent --show-error --retry 5 --retry-delay 10 -o /usr/local/bin/deis  "$CLI_URL"
 chmod +x /usr/local/bin/deis
 
 echo "Workflow CLI Version '$(deis --version)' installed."
