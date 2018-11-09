@@ -85,7 +85,7 @@ var _ = Describe("all buildpack apps", func() {
 				Entry("Python (Flask)", "https://github.com/deisthree/example-python-flask.git", "",
 					"Powered by Deis"),
 				Entry("Ruby", "https://github.com/deisthree/example-ruby-sinatra.git", "",
-					"Powered by Deis"),
+					"Powered by Hephy"),
 				Entry("Scala", "https://github.com/deisthree/example-scala.git", "",
 					"Powered by Deis"),
 			)
