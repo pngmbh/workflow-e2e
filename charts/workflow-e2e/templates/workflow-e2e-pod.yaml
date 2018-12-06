@@ -11,6 +11,8 @@ spec:
     image: {{.Values.org}}/workflow-e2e:{{.Values.docker_tag}}
     imagePullPolicy: {{.Values.pull_policy}}
     env:
+      - name: DEIS_ROUTER_SERVICE_PORT
+        value: "80"
       - name: GINKGO_NODES
         value: "{{.Values.ginkgo_nodes}}"
       - name: JUNIT
@@ -22,6 +24,14 @@ spec:
         value: "{{.Values.test}}"
       - name: DEBUG_MODE
         value: "{{.Values.debug_mode}}"
+    command: ["/bin/bash"]
+    args:
+        - -c
+        - >
+            export DEIS_CONTROLLER_URL=http://deis.$$(getent hosts deis-router | grep -o "^[^ ]*").nip.io;
+            export DEIS_ROUTER_SERVICE_HOST=deis.$$(getent hosts deis-router | grep -o "^[^ ]*").nip.io;
+            ./docker-test-integration.sh
+
     volumeMounts:
     - name: artifact-volume
       mountPath: /root
