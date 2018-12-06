@@ -117,8 +117,9 @@ A third option is to run the test suite from within the very cluster that is und
 To install the [helm](https://github.com/kubernetes/helm) chart and start the tests, assuming helm and its corresponding server component tiller are [installed](https://github.com/kubernetes/helm/blob/master/docs/install.md):
 
 ```console
-helm repo add workflow-e2e https://charts.deis.com/workflow-e2e
-helm install --verify workflow-e2e/workflow-e2e --namespace deis
+git clone git clone git@github.com:deis/workflow-e2e.git; cd workflow-e2e
+helm dependency update charts/workflow-e2e
+helm upgrade --install workflow-e2e charts/workflow-e2e --namespace deis
 ```
 
 To monitor tests as they execute:
