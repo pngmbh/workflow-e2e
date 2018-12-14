@@ -5,6 +5,7 @@ metadata:
   labels:
     heritage: deis
 spec:
+  serviceAccount: deis-controller
   restartPolicy: Never
   containers:
   - name: tests
